@@ -6,7 +6,7 @@
 #    Copyright © 2016 Basement720 Technology, Inc.
 #    Copyright © 2016 Dominador B. Ramos Jr. <mongramosjr@gmail.com>
 #    This file is part of Accounting with Operating Units and is released under
-#    the BSD-3.0 License: http://www.opensource.org/licenses/bsd-license.php
+#    the BSD 3-Clause License: https://opensource.org/licenses/BSD-3-Clause
 ##############################################################################
 
 from openerp import fields, models, api, _
