@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_voucher_tree">
+            <field name="name">account.voucher.tree</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_tree"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_voucher_tree_purchase">
+            <field name="name">account.voucher.tree.supplier</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_tree_purchase"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_voucher_line_form">
+            <field name="name">account.voucher.line.form</field>
+            <field name="model">account.voucher.line</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_line_form"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="before">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_voucher_line_tree">
+            <field name="name">account.voucher.line.tree</field>
+            <field name="model">account.voucher.line</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="account_id" position="before">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_voucher_filter" model="ir.ui.view">
+            <field name="name">account.voucher.select</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter"/>
+            <field name="arch" type="xml">
+                <field name="journal_id" position="after">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+                <xpath expr="//search//group" position="inside">
+                    <filter string="Operating Unit" domain="[]" context="{'group_by':'operating_unit_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_cash_statement_graph" model="ir.ui.view">
+            <field name="name">account.voucher.graph</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.account_cash_statement_graph"/>
+            <field name="arch" type="xml">
+                <field name="date" position="after">
+                    <field name="operating_unit_id" groups="operating_unit.group_multi_operating_unit"/>
+                </field>
+            </field>
+         </record>
+    </data>
+
+</openerp>
