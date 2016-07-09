@@ -36,7 +36,7 @@
         </record>
         
         <record id="ir_rule_account_payments_allowed_operating_units" model="ir.rule">
-            <field name="model_id" ref="account.model_account_payments"/>
+            <field name="model_id" ref="account.model_account_payment"/>
             <field name="domain_force">['|', ('operating_unit_id','=',False), ('operating_unit_id','in',[g.id for g in user.operating_unit_ids])]</field>
             <field name="name">Account Payments from allowed operating units</field>
             <field name="global" eval="True"/>
