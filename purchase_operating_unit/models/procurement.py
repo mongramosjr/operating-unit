@@ -11,6 +11,7 @@ from openerp.exceptions import UserError
 class ProcurementOrder(models.Model):
     _inherit = 'procurement.order'
 
+"""
     @api.one
     @api.constrains('purchase_line_id')
     def _check_purchase_order_operating_unit(self):
@@ -21,7 +22,7 @@ class ProcurementOrder(models.Model):
             raise UserError(_('Configuration error!\nThe Quotation / Purchase\
             Order and the Procurement Order must belong to the\
             same Operating Unit.'))
-
+"""
     @api.multi
     def _prepare_purchase_order(self, partner):
         res = super(ProcurementOrder, self)._prepare_purchase_order(partner)
