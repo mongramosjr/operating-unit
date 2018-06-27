@@ -27,6 +27,8 @@ class AccountMoveLine(models.Model):
     @api.model
     def _query_get(self, domain=None):
         if self._context.get('operating_unit_ids', False):
+            if not domain:
+                domain = []
             domain.append(('operating_unit_id', 'in',
                            self._context.get('operating_unit_ids')))
         return super(AccountMoveLine, self)._query_get(domain)
